@@ -1,2 +1,2 @@
-# Algorithms
-record of algorithms
+# 국비교육 메모장
+그날 배운 것 저장.
