@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- xxx="" 형식은 attribut라고 한다. xxx는 atribute main, ""는 attribute value 이다.-->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        나의 페이지
+    </title>
+    <style>
+        h1{
+            color : crimson;
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <h1>
+        제목입니다.
+    </h1>
+    <img src="images/kim1.png" alt="김구라 이미지입니다.">
+    <button onclick="greet();">인사하기</button>
+    <script>
+        //여기는 자바스크립트 영역입니다. 
+        /*
+        자바랑 주석 쓰는 건 동일합니다.
+        여기 작성한 javajscript는 [페이지 로딩 시]에 웹브라우저가 해석합니다.
+        페이지 로딩 시에 알림창으로 이름을 띄우고 싶다면 여기에 작성해야 합니다.
+        */
+       alert("바로 뜨는 알람"); //built-in 함수라 선언 안해도 그냥 쓸 수 있음.
+       console.log(999); //페이지 로딩 시에 콘솔창으로 숫자 999 를 출력
+       function greet() { // greet 이라는 이름의 함수 만들기. 예약어 개념임.
+            //함수 안에는 실행할 javascript를 작성할 수 있다.
+            alert("안녕하세요!"); 
+            //여긴 페이지 로딩 시 해석되지 않음. 특정 시점(마우스가 특정 지역에 도달 등)에 실행할 javascript를 미리 준비해놓는 역할.
+       }
+    </script>
+</body>
+</html>
