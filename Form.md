@@ -1,7 +1,7 @@
 ## Form요소.
 form 요소는 서버에 제출할 양식을 작성할 때 주로 사용한다.
 <br>
-form action / label / input / fieldset / select / 
+form action / label / input / fieldset / select 에 대해 학습함.
 
 ```html
     <form action="login.jsp">
