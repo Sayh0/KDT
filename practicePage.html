@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>practicePage</title>
+    <style>
+        .backgroundImage {
+            height: 100vh; /*100%가 아니고 100vh인 것에 주의*/
+            background: url(https://user-images.githubusercontent.com/96712990/177008848-2d8d7b00-79d1-4cc9-9fe7-d0095047bb2d.jpg) no-repeat center;
+            /*no-repeat은 이미지 반복해서 나오지 않게, center는 이미지를 가운데 배치해 줌*/
+            background-size: cover; /*이미지 꽉 차게 해줌*/
+        }
+        .mainText {
+            display: inline-block;
+            animation: fadein 1s;
+            -moz-animation: fadein 1; /* Firefox */
+            -webkit-animation: fadein 1s; /* Safari and Chrome */
+            -o-animation: fadein 1s; /* Opera */}
+            @keyframes fadein {
+                from {
+                    opacity: 0;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
+        .loginContainer {
+            display: inline-block;/*왠진 모르겠지만 inline-black을 써야 백그라운드 색이 적용되는군*/
+            background-color: rgb(255, 215, 166);
+            animation: fadein 3s;
+            @keyframes fadein {
+                from {
+                    opacity: 0;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class = "backgroundImage">
+        <div class = "mainText">
+            <h1>HTML 연습용 기능구현 페이지</h1>
+            <h2>코딩 잘하고 싶어요</h2>
+            <p>div와 p는 block 요소입니다.</p>
+        </div>
+        <span class="loginContainer">
+            <table border="1"> <!--html에서 border는 테두리의 굵기 설정.-->
+                <caption><h1>Login</h1></caption>
+            </table>
+            <form action="login.jsp">
+                <label for="email">Email</label>
+                <input type="text" id="email" name="id">
+                <br>
+                <label for="pwd">Password</label>
+                <input type="password" id="pwd" name="pwd">
+                <br>
+                <button type="submit">Login</button>
+                <!-- submit 버튼은 반드시 form 요소 안에 위치시켜야 한다.-->
+            </form>
+        </span>
+    </div>
+   
+</body>
+</html>
