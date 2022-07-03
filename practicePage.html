@@ -39,6 +39,9 @@
                 }
             }
         }
+        #beenzinoBox_under {
+            background-color: rgb(255, 215, 166);
+        }
 
     </style>
 </head>
@@ -48,24 +51,51 @@
         <div class = "mainText">
             <h1>HTML 연습용 기능구현 페이지</h1>
             <h2>코딩 잘하고 싶어요</h2>
+            <h3>어디까지 작아지려나?</h3>
+            <h4>h4입니다</h4>
+            <h5>실제로 헤드라인을 이걸로 쓸까요?</h5>
+            <h6>h7 이상은 없습니다</h6>
             <p>div와 p는 block 요소입니다.</p>
         </div>
         <span class="loginContainer">
-            <table border="1"> <!--html에서 border는 테두리의 굵기 설정.-->
-                <caption><h1>Login</h1></caption>
-            </table>
-            <form action="login.jsp">
-                <label for="email">Email</label>
-                <input type="text" id="email" name="id">
-                <br>
-                <label for="pwd">Password</label>
-                <input type="password" id="pwd" name="pwd">
-                <br>
-                <button type="submit">Login</button>
-                <!-- submit 버튼은 반드시 form 요소 안에 위치시켜야 한다.-->
+            <form action="login.jsp"><!--action은 입력한 내용이 어디로 보내지는지 설명.-->
+                <table border="3"> <!--html에서 border는 테두리의 굵기 설정.-->
+                    <caption border="2"><h1>Login</h1></caption>
+                    <th colspan="2">Please Login</th><!-- 테이블 헤드-->
+                    <tr><!-- 테이블 1행-->
+                        <td><label for="email">Email</label></td><!--테이블 1행1열 -->
+                        <td><input type="text" id="email" name="id"></td><!--테이블 1행2열 -->
+                    </tr>
+                    <tr><!-- 테이블 2행-->
+                        <td><label for="pwd">Password</label></td><!--테이블 2행1열 -->
+                        <td><input type="password" id="pwd" name="pwd"></td><!--테이블 2행2열 -->
+                    </tr>
+                    <tr><!-- 테이블 3행-->
+                        <td colspan="2"><button type="submit">login</button></td>
+                        <!-- submit 버튼은 반드시 form 요소 안에 위치시켜야 한다.-->
+                    </tr>
+                </table>
             </form>
         </span>
+        <div class="imageBox">
+            <table border="1">
+                <tr>
+                    <td><img src="https://user-images.githubusercontent.com/96712990/177049335-50372b7c-30ea-4b16-bd48-a2be58774cd2.jpg" alt="빈지노" onclick="greet()"></td>
+                    <!--onmouseover 뒤는 자바스크립트-->         
+                </tr>
+                <tr>
+                    <td id="beenzinoBox_under">사진을 클릭하면 알림이 동작합니다.</td>
+                </tr>
+            </table>
+        </div>
     </div>
-   
+    
+    <script>
+        //여기는 자바스크립트 영역입니다. 
+        alert("연습용 페이지 알람"); // 해당 알람은 페이지 로딩 후 즉시 뜸.
+        function greet() {
+            alert("앨범 좀 내라!");
+        }
+    </script>   
 </body>
 </html>
