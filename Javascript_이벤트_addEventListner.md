@@ -96,4 +96,58 @@
 </body>
 </html>
 ```
+## 예제)마우스 좌표 표시 구현
 
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step02_event03.html</title>
+</head>
+<style>
+    .box{
+        width: 300px;
+        height: 300px;
+        border: 1px solid red;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 200px;
+    }
+</style>
+
+<body>
+    <div class="box" id="myDiv"></div>
+    <script>
+        document.querySelector("#myDiv").addEventListener("mousedown", function() {
+            myDiv.style.backgroundColor="yellow";
+        })
+        document.querySelector("#myDiv").addEventListener("mouseup", function() {
+            myDiv.style.backgroundColor="white";
+        })
+        document.querySelector("#myDiv").addEventListener("mousemove", function(e) { //e는 매개변수.
+            console.log("mousemove!"); //마우스 커서가 박스 안에서 이동시마다 콘솔창에 mousemove! 출력.
+            console.log(e);            //출력할 정보 구성
+            let info="x좌표 : "+e.offsetX+", y좌표 : "+e.offsetY; e의 offsetX
+            document.querySelector("#myDiv").innerText=info; //div의 innerText로 출력.
+        })
+
+        //2개의 매개변수가 선언된 함수
+        function callMe("eventName", callback){//stringType 변수와 functionType 변수 전달
+            console.log("이벤트명 : "+eventName);//callback 함수를 호출하면서 전달할 object
+            let obj={num : 1, name : "마우스 좌표 표시하기"};
+            callback(obj);//callback에 전달된 dataType은 함수이므로 호출할 수 있음.
+        }
+        // 이렇게 만들어진 함수를 사용하는 것.
+        
+        callMe("배고파", function(a){
+            alert(a.name);
+            //함수를 전달하면서 "동작을 전달한다"라고 이해하면 될 듯.
+        })
+
+    </script>
+</body>
+</html>
+```
