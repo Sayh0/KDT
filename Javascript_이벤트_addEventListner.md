@@ -97,6 +97,11 @@
 </html>
 ```
 ## 예제)마우스 좌표 표시 구현
+![image](https://user-images.githubusercontent.com/96712990/178149685-0005eafa-25e6-40b1-88c7-8f5357bd2556.png)
+![image](https://user-images.githubusercontent.com/96712990/178149699-3e81db7d-76b1-4dd1-96e4-b3291ec54642.png)
+![image](https://user-images.githubusercontent.com/96712990/178149720-93979ec8-477a-449b-bc4e-6fcc948dafa1.png)
+
+
 
 ```html
 <!DOCTYPE html>
@@ -121,30 +126,31 @@
 <body>
     <div class="box" id="myDiv"></div>
     <script>
+        //2개의 매개변수가 선언된 함수
+        function callMe(eventName, callback){//stringType 변수와 functionType 변수 전달
+            console.log("이벤트명 : "+eventName);//callback 함수를 호출하면서 전달할 object
+            let obj={num : 1, name : "마우스 좌표 표시하는 페이지입니다."};
+            callback(obj);//callback에 전달된 dataType은 함수이므로 호출할 수 있음.
+        }
+        // 이렇게 만들어진 함수를 사용하는 것.
+        
+        callMe("마우스로 좌표를 표시해보기", function(a){
+            alert(a.name);
+            //함수를 전달하면서 "동작을 전달한다"라고 이해하면 될 듯.
+        })
+
         document.querySelector("#myDiv").addEventListener("mousedown", function() {
             myDiv.style.backgroundColor="yellow";
         })
         document.querySelector("#myDiv").addEventListener("mouseup", function() {
             myDiv.style.backgroundColor="white";
         })
+  
         document.querySelector("#myDiv").addEventListener("mousemove", function(e) { //e는 매개변수.
             console.log("mousemove!"); //마우스 커서가 박스 안에서 이동시마다 콘솔창에 mousemove! 출력.
             console.log(e);            //출력할 정보 구성
             let info="x좌표 : "+e.offsetX+", y좌표 : "+e.offsetY; e의 offsetX
             document.querySelector("#myDiv").innerText=info; //div의 innerText로 출력.
-        })
-
-        //2개의 매개변수가 선언된 함수
-        function callMe("eventName", callback){//stringType 변수와 functionType 변수 전달
-            console.log("이벤트명 : "+eventName);//callback 함수를 호출하면서 전달할 object
-            let obj={num : 1, name : "마우스 좌표 표시하기"};
-            callback(obj);//callback에 전달된 dataType은 함수이므로 호출할 수 있음.
-        }
-        // 이렇게 만들어진 함수를 사용하는 것.
-        
-        callMe("배고파", function(a){
-            alert(a.name);
-            //함수를 전달하면서 "동작을 전달한다"라고 이해하면 될 듯.
         })
 
     </script>
