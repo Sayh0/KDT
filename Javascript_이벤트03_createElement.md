@@ -65,7 +65,7 @@
                 /*
                     xxx.addEventListern("eventName", functiom(){
                         this.뭐뭐머 << '이 이벤트가 일어난 바로 그 요소'라고 이해하자.
-                        여기선 xxx 가 되겠지.li 3개 중 이벤트가 일어난 그 li. 김구라를 click한 이벤트가 발생한 시점 김구라가 this.
+                        여기선 xxx 가 되겠지.li 3개 중 이벤트가 일어난 그 li. 피카츄를 click한 이벤트가 발생한 시점 피카츄가 this.
                         코드 작성 시점에선 this가 어떤 li를 가르키고 있는지는 정해놓지 않았음.
                     })
                 */
