@@ -94,3 +94,20 @@
 </body>
 </html>
 ```
+
+## 버튼으로 그림 추가
+<br>
+
+![image](https://user-images.githubusercontent.com/96712990/178211757-19c762a3-e9ac-4e46-9754-8d8e910ad9cd.png) <br>
+
+
+![image](https://user-images.githubusercontent.com/96712990/178211846-b43ffe23-842a-4d68-b115-7b5cf5d8ed82.png) <br>
+
+
+![image](https://user-images.githubusercontent.com/96712990/178211876-2ba6ebfa-83e2-41dd-a91c-9d1d62a15cc3.png) <br>
+
+
+
+
+
+
