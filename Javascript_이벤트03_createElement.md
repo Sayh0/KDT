@@ -96,6 +96,8 @@
 ```
 
 ## 버튼으로 그림 추가
+[Step04_createElement2 실습 파일 참고.](https://github.com/Sayh0/log_JAVASCRIPT/blob/main/Step04_createElement2.html)
+
 <br>
 
 ![image](https://user-images.githubusercontent.com/96712990/178211757-19c762a3-e9ac-4e46-9754-8d8e910ad9cd.png) <br>
@@ -105,6 +107,37 @@
 
 
 ![image](https://user-images.githubusercontent.com/96712990/178211876-2ba6ebfa-83e2-41dd-a91c-9d1d62a15cc3.png) <br>
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step05_createElement2.html</title>
+</head>
+<body>
+    <button id="makeBtn">만들기</button>
+    <div id="wrapper">
+
+    </div>
+    <script>
+        document.querySelector("#makeBtn").addEventListener("click", function(){
+            let img=document.createElement("img"); // img 요소를 만들고 참조값을 img라는 변수에 담기.
+            img.setAttribute("src", "images/bottle.png"); // setAttribute로 srt 속성의 값 추가. 
+                                                             "속성명", "속성의 value값"을 string 타입으로 전달.
+            img.setAttribute("id", "one"); //id 추가하기.
+            img.setAttribute("alt","맥주병 이미지") //이미지 설명 추가하기.
+            document.querySelector("#wrapper").append(img); // id가 wrapper인 요소의 자식 요소로 추가하기.
+            //이런 식으로도 추가 가능
+
+        });
+    </script>
+</body>
+</html>
+```
+
 
 
 
