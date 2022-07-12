@@ -1,6 +1,8 @@
 ## 국비교육 메모장
 <br>
 TIL.그날 배운 것 저장.
+<br>
+아직 정리 안한 것 : bootStrap 사용법. css기본사용법
 
 ### HTML/CSS/JAVASCRIPT
 ---
