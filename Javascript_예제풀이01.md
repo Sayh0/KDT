@@ -72,9 +72,9 @@
 [Step05_example](https://github.com/Sayh0/log_JAVASCRIPT/blob/main/Step05_example_Step02example11%EC%9D%98%20basic.html) 참고. <br><br>
 ![image](https://user-images.githubusercontent.com/96712990/178401054-cb075d86-0880-44b8-ad93-71761deec46f.png) <br>
 ![image](https://user-images.githubusercontent.com/96712990/178401120-e84c7b62-acc6-4fbc-a023-f1299914bc8d.png) <br>
-![image](https://user-images.githubusercontent.com/96712990/178401156-8654b9ae-ce76-49e6-a38e-5023bd7cee80.png)
-
-
+![image](https://user-images.githubusercontent.com/96712990/178401156-8654b9ae-ce76-49e6-a38e-5023bd7cee80.png) 
+<br>
+<br>
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -132,5 +132,64 @@
 <br>
 
 #### 3. select로 선택 시 컴퓨터의 select가 자동 선택되는 방식
-[Step09_example11](https://github.com/Sayh0/log_JAVASCRIPT/blob/main/Step02_example11_Step05%ED%99%95%EC%9E%A5%ED%8C%90.html) 참고. <br><br>    
+[Step02_example11](https://github.com/Sayh0/log_JAVASCRIPT/blob/main/Step02_example11_Step05%ED%99%95%EC%9E%A5%ED%8C%90.html) 참고. <br><br>  
+![image](https://user-images.githubusercontent.com/96712990/178453177-f5866583-fb9c-4915-8784-3d21061dbb0f.png) <br>
+![image](https://user-images.githubusercontent.com/96712990/178453247-f5ff25bb-427a-4872-87f6-b7bc08b6c71d.png) 
+<br>
+<br>
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step02_example10</title>
+</head>
+<body>
+    <h3>가위 바위 보 게임</h3>
+    <select id="mySelect">
+        <option value="">나 : 선택</option>
+        <option value="0">나 : 가위</option>
+        <option value="1">나 : 바위</option>
+        <option value="2">나 : 보</option>
+    </select>
+    <strong>vs</strong>
+    <select id="comSelect">
+        <option value="">com : </option>
+        <option value="0">com : 가위</option>
+        <option value="1">com : 바위</option>
+        <option value="2">com : 보</option>
+    </select>
+    <p id="result">결과는?</p>
+    <script>
+        document.querySelector("#mySelect").addEventListener("change",function(){
+            let myValue=document.querySelector("#mySelect").value;
+            let ranNum=Math.floor(Math.random()*3)
+            document.querySelector("#comSelect").value=ranNum;
+
+            if(myValue==0){
+                if(ranNum==0){
+                    document.querySelector("#result").innerText="비겼습니다";
+                } else if(ranNum==1){
+                    document.querySelector("#result").innerText="졌습니다";
+                } else {
+                    document.querySelector("#result").innerText="이겼습니다";}
+        
+            //같은 방식으로 다른 두 경우에 적용
+        
+            } else if(myValue==1){
+                if(ranNum==0){document.querySelector("#result").innerText="이겼습니다";
+                } else if(ranNum==1){document.querySelector("#result").innerText="비겼습니다";
+                } else {document.querySelector("#result").innerText="졌습니다";}
+            } else if(ranNum==2){
+                if(ranNum==0){document.querySelector("#result").innerText="졌습니다";
+                } else if(ranNum==1){document.querySelector("#result").innerText="이겼습니다";
+                } else {document.querySelector("#result").innerText="비겼습니다";}
+            }
+        })
+    </script>
+</body>
+</html>
+```
 
