@@ -1,5 +1,5 @@
 ## 자바스크립트 예제02-동적으로 문서객체 만들기
-배우는 것 : insertAdjacent, append, 
+*배우는 것 : insertAdjacent, append...* <br><br><br>
 ![image](https://user-images.githubusercontent.com/96712990/178455242-3ddb6b4f-19ac-410a-913b-20dd8b5a0b92.png) <br>
 ![image](https://user-images.githubusercontent.com/96712990/178455404-ad36abe8-7f05-435f-9afe-4bdbb321dfc8.png) <br>
 ![image](https://user-images.githubusercontent.com/96712990/178455467-2adae61b-8a4f-4a47-af08-301a0a4e9ba4.png) 
