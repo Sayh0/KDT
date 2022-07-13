@@ -53,5 +53,6 @@ FROM DUAL;
 <br>
 ![듀얼테이블](https://user-images.githubusercontent.com/96712990/178695300-e9e888cb-3a98-4000-9510-6d9376d41ff3.jpg) <br>
 *더미테이블에서 테스트 시퀸스를 만들어 계속 실행시킨 모습.*
+<br>
 (참고) `CREATE SEQUENCE test_seq` 처럼 시퀸스를 생성하면 데이터의 순번처럼 활용할 수 있다. 
 시퀸스는 별도 지정이 없는 한 0부터 시작하며, NEXTVAL은 시퀸스 값을 하나 증가시키고 CURRVAL은 현재 시퀸스 값을 보여준다.
