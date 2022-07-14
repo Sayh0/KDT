@@ -100,26 +100,31 @@ FROM DUAL;
 <br><br>
 
 ![JOIN1](https://user-images.githubusercontent.com/96712990/178942103-c9a72ab7-907b-4061-ab1b-dc2ec95dc12f.JPG)
-
 <br>
-
 *emp 테이블과 dept 테이블에서 공통된 deptno 라는 컬럼을 통해 원하는 결과를 출력해보고자 한다* 
 <br>
+<br>
+<br>
 필요한건 ename, deptno, dname이고 이 컬럼은 emp, dept 테이블에 있다. 그리고 결과의 조건으로 emp의 deptno와 detp의 deptno가 같으면 되는 것 아닌가? 심플하게 생각해보기 위해 우선 생각나는 대로 쿼리를 날려 보자. 
+<br>
 <br>
 <br>
 ![JOIN2 deptno가 두개 테이블에 겹쳐서 있는 거라 애매하다 지랄](https://user-images.githubusercontent.com/96712990/178943487-63659b2e-1a6a-47fc-b8a7-e78e3253bc1c.JPG)
 <br>
 애매? 컴퓨터가 애매하다고 뱉는 건 처음 본다. 설명을 들어보니, deptno 가 두 개 테이블에 모두 존재하기 때문에 각각 명명을 해 주어야 한다고 한다.<br> 친절하게 emp.deptno와 dept.deptno로 명명해 주고 다시 출력해 보자. 
-<br><br>
+<br>
+<br>
+<br>
 ![JOIN3 애매하지 않게 테이블명 명명해서 해줫떠니 이게뭐람 사원수가 갑자기 늘어남](https://user-images.githubusercontent.com/96712990/178944100-b487c09c-56f8-4f20-88d0-a12bab738e97.JPG) 
 <br>
 뭔...이번엔 갑자기 12명밖에 안 되는 컬럼이 48개로 늘어났다. 오름차 정렬을 해서 무슨 일인지 알아보자.
 <br>
 <br>
+<br>
 ![JOIN4 오름차 정렬했을 경우](https://user-images.githubusercontent.com/96712990/178944315-ab9ae5b3-4f20-4fd6-a4ae-c4d83d22bf2f.jpg) 
 <br>
 왜 이름은 4개씩 나오고 부서명이 하나씩 박혀 있는가 하니, 오라클은 이렇게 2개 테이블이 있으면 2개 테이블로 나올 수 있는 경우를 다 조합해서 로우로 뱉는다. 여기서도 emp12개 row와 dept4개 row를 다 조합해서 위와 같이 48개의 끔찍한 갯수를 뱉은 것이다. 이걸 쓸 수는 없으니 한번 더 가공을 해보자. 조건으로 `emp.deptno = dept.deptno`를 걸어준다면 골라낼 수 있을 거 같은데...
+<br>
 <br>
 <br>
 ![JOIN5](https://user-images.githubusercontent.com/96712990/178944915-42f4e142-ffd3-4bad-8e73-8a57d3d896bf.jpg)
