@@ -123,12 +123,25 @@ FROM DUAL;
 <br>
 ![JOIN4 오름차 정렬했을 경우](https://user-images.githubusercontent.com/96712990/178944315-ab9ae5b3-4f20-4fd6-a4ae-c4d83d22bf2f.jpg) 
 <br>
-왜 이름은 4개씩 나오고 부서명이 하나씩 박혀 있는가 하니, 오라클은 이렇게 2개 테이블이 있으면 2개 테이블로 나올 수 있는 경우를 다 조합해서 로우로 뱉는다. 여기서도 emp12개 row와 dept4개 row를 다 조합해서 위와 같이 48개의 끔찍한 갯수를 뱉은 것이다. 이걸 쓸 수는 없으니 한번 더 가공을 해보자. 조건으로 `emp.deptno = dept.deptno`를 걸어준다면 골라낼 수 있을 거 같은데...
+왜 이름은 4개씩 나오고 부서명이 하나씩 박혀 있는가 하니, 오라클은 이렇게 2개 테이블이 있으면 2개 테이블로 나올 수 있는 경우를 다 조합해서 로우로 뱉는다. <br>
+<br>
+![JOIN6 조인조건 해주지 않으면 오라클은 이렇게 다 조합해버림](https://user-images.githubusercontent.com/96712990/178946807-28c00383-a1c6-4187-bee7-d08dd8c51aa5.JPG)
+<br>
+*이렇게 하나하나 붙여서 테이블1의 컬럼갯수 X 테이블2의 컬럼갯수 만큼 조합해버린다*
+<br><br>
+
+여기서도 emp12개 row와 dept4개 row를 다 조합해서 위와 같이 48개의 끔찍한 갯수를 뱉은 것이다. 이걸 쓸 수는 없으니 한번 더 가공을 해보자. 조건으로 `emp.deptno = dept.deptno`를 걸어준다면 골라낼 수 있을 거 같은데...
 <br>
 <br>
 <br>
 ![JOIN5](https://user-images.githubusercontent.com/96712990/178944915-42f4e142-ffd3-4bad-8e73-8a57d3d896bf.jpg)
 <br>
-WHERE절에 조건을 걸어 줬더니 확실히 보기 좋게 출력되었다.
- 
-
+*WHERE절에 조건을 걸어 줬더니 훨씬 보기 간단하게 출력되었다.*
+<br>
+<br>
+<br>
+![join7 최종결과물](https://user-images.githubusercontent.com/96712990/178947416-a3970010-a6fc-40a9-af38-32a83da018b4.JPG)
+<br>
+*결과.*
+<br>
+조인할 때에는 emp.deptno dept.deptno 모두 써 줄 필요 없다. 하나만 써도 무방하다. 애매하다고 한건 어떤 dept인지 몰라서 애매하다고 했던 거고, 여기 dept를 쓰도록 내가 하나 집어 줄게~ 라는 느낌으로 이해하면 될 것 같다.
