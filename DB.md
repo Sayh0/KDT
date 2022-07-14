@@ -1,5 +1,9 @@
-## 데이터베이스에서 오늘 나는 뭘 배웠나?
+# 데이터베이스에서 오늘 나는 뭘 배웠나?
 <br>
+## 목차 
+
+1. [프라이머리 키Primary Key](#프라이머리-키Primary-Key)
+
 
 ![오라클 테이블 저장방식](https://user-images.githubusercontent.com/96712990/178691788-032acd0e-5506-40fe-8eed-bb86b9060987.jpg) 
 <br>
@@ -21,7 +25,7 @@ CREATE TABLE member
 *name에는 VARCHAR 타입으로 12크기, addr에는 VARCHAR타입으로 20크기까지 부여.*
 <br>
 <br>
-### 프라이머리 키Primary Key
+## 프라이머리 키Primary Key
 프라이머리 키primary key를 부여할 경우 지정된 컬럼은 단 하나의 값만 가질 수 있다.
 <br>
 <br>
@@ -80,4 +84,5 @@ FROM DUAL;
 ![null은 연산이 안됨 비교연산이 안 됨 nulㅣ값은  3번](https://user-images.githubusercontent.com/96712990/178895580-057e87b9-e3a5-48a0-ba94-1151a1eb71d5.JPG)
 <br>
 <br>
+### 함수
 
