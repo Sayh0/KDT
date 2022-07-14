@@ -14,5 +14,7 @@ TIL.그날 배운 것 저장.
 <br>
 [예제풀이_가위바위보게임](https://github.com/Sayh0/KDT/blob/main/Javascript_%EC%98%88%EC%A0%9C%ED%92%80%EC%9D%B401.md)
 <br>
+### DB
+---
 [DB입문](https://github.com/Sayh0/KDT/blob/main/DB.md)
 #듀얼테이블 #NULL값 #함수 #조인
