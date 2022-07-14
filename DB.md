@@ -21,7 +21,7 @@ CREATE TABLE member
 *name에는 VARCHAR 타입으로 12크기, addr에는 VARCHAR타입으로 20크기까지 부여.*
 <br>
 <br>
-
+### 프라이머리 키Primary Key
 프라이머리 키primary key를 부여할 경우 지정된 컬럼은 단 하나의 값만 가질 수 있다.
 <br>
 <br>
@@ -29,6 +29,7 @@ CREATE TABLE member
 *중복시 제약조건 위배라고 하면서 뱉어버린다.*
 <br>
 <br>
+### 스풀SPOOL
 `SPOOL`을 이용하면 입력하는 쿼리와 출력값을 스풀 텍스트 파일에 기록할 수 있다. `SPOOL (텍스트 파일 이름).txt`라고 입력한다.
 기록을 끝내고 싶으면 `SPOOL OFF`를 입력하면 된다.SPOOL 된 텍스트 파일은 기본적으로 유저 폴더 안에 존재한다. 
 <br><br> 
