@@ -1,9 +1,14 @@
 # 데이터베이스에서 오늘 나는 뭘 배웠나?
-<br>
-## 목차 
-<br> 
-1. [프라이머리 키Primary Key](#프라이머리-키Primary-Key) 
 
+## 목차
+
+1. [프라이머리 키](#프라이머리-키primary-key) 
+2. [스풀](#스풀spool)
+3. [듀얼테이블(더미)](#듀얼테이블dual)
+4. [NULL값](#null값)
+5. [함수](#함수function)
+6. [조인](#조인join)
+<br>
 
 ![오라클 테이블 저장방식](https://user-images.githubusercontent.com/96712990/178691788-032acd0e-5506-40fe-8eed-bb86b9060987.jpg) 
 <br>
@@ -33,7 +38,7 @@ CREATE TABLE member
 *중복시 제약조건 위배라고 하면서 뱉어버린다.*
 <br>
 <br>
-### 스풀SPOOL
+## 스풀SPOOL
 `SPOOL`을 이용하면 입력하는 쿼리와 출력값을 스풀 텍스트 파일에 기록할 수 있다. `SPOOL (텍스트 파일 이름).txt`라고 입력한다.
 기록을 끝내고 싶으면 `SPOOL OFF`를 입력하면 된다.SPOOL 된 텍스트 파일은 기본적으로 유저 폴더 안에 존재한다. 
 <br><br> 
@@ -43,7 +48,7 @@ CREATE TABLE member
 <br>
 <br>
 
-### 듀얼테이블(더미)
+## 듀얼테이블Dual
 오라클은 값만 띡 입력했을때 편리하게 결과를 뱉지 않는다. 셀렉트문을 구성해서 값을 입력해야 되는데, 이럼 또 테이블을 만들어야 하니 여간 성가신게 아니다.
 이럴 때 사용하는게 더미 테이블 **DUAL**이다.
 **DUAL**은 단순한 연산이나 함수 결과 등 쿼리 결과값을 쉽고 빠르게 확인해볼 때 쓰는 임시테이블이다.
@@ -73,7 +78,7 @@ FROM DUAL;
 시퀸스는 별도 지정이 없는 한 0부터 시작하며, NEXTVAL은 시퀸스 값을 하나 증가시키고 CURRVAL은 현재 시퀸스 값을 보여준다.
 <br>
 <br>
-### NULL값
+## NULL값
 테이블 안의 데이터 값이 NULL인 경우, SQL 연산자를 통해 연산할 수 없다. 
 전용 연산자인 `IS NULL` 이나 `IS NOT NULL` 이 필요하다.
 <br>
@@ -84,5 +89,41 @@ FROM DUAL;
 ![null은 연산이 안됨 비교연산이 안 됨 nulㅣ값은  3번](https://user-images.githubusercontent.com/96712990/178895580-057e87b9-e3a5-48a0-ba94-1151a1eb71d5.JPG)
 <br>
 <br>
-### 함수
+## 함수Function
+
+## 조인JOIN
+하나의 테이블로 원하는 칼럼정보를 참조할수 없는 경우 관련된 테이블을 논리적으로 결합하여 원하는 칼럼 정보를 참조하는 방법을 **JOIN** 이라고 한다. 두 개 이상의 테이블의 컬럼 정보를 합쳐 원하는 결과값을 뽑아내기 위해 사용한다.
+
+<br> 
+예를 들어 모든 사원의 이름ename, 부서번호deptno, 부서명dname을 출력하고 싶다고 가정해보자. 그런데 이름과 부서번호는 사원 테이블emp에 있는데, 부서명은 부서 테이블dept에 존재한다. 이렇게 두개의 테이블에서 정보를 끌어와야 할 때 조인을 사용한다.
+
+<br><br>
+
+![JOIN1](https://user-images.githubusercontent.com/96712990/178942103-c9a72ab7-907b-4061-ab1b-dc2ec95dc12f.JPG)
+
+<br>
+
+*emp 테이블과 dept 테이블에서 공통된 deptno 라는 컬럼을 통해 원하는 결과를 출력해보고자 한다* 
+<br>
+필요한건 ename, deptno, dname이고 이 컬럼은 emp, dept 테이블에 있다. 그리고 결과의 조건으로 emp의 deptno와 detp의 deptno가 같으면 되는 것 아닌가? 심플하게 생각해보기 위해 우선 생각나는 대로 쿼리를 날려 보자. 
+<br>
+<br>
+![JOIN2 deptno가 두개 테이블에 겹쳐서 있는 거라 애매하다 지랄](https://user-images.githubusercontent.com/96712990/178943487-63659b2e-1a6a-47fc-b8a7-e78e3253bc1c.JPG)
+<br>
+애매? 컴퓨터가 애매하다고 뱉는 건 처음 본다. 설명을 들어보니, deptno 가 두 개 테이블에 모두 존재하기 때문에 각각 명명을 해 주어야 한다고 한다.<br> 친절하게 emp.deptno와 dept.deptno로 명명해 주고 다시 출력해 보자. 
+<br><br>
+![JOIN3 애매하지 않게 테이블명 명명해서 해줫떠니 이게뭐람 사원수가 갑자기 늘어남](https://user-images.githubusercontent.com/96712990/178944100-b487c09c-56f8-4f20-88d0-a12bab738e97.JPG) 
+<br>
+뭔...이번엔 갑자기 12명밖에 안 되는 컬럼이 48개로 늘어났다. 오름차 정렬을 해서 무슨 일인지 알아보자.
+<br>
+<br>
+![JOIN4 오름차 정렬했을 경우](https://user-images.githubusercontent.com/96712990/178944315-ab9ae5b3-4f20-4fd6-a4ae-c4d83d22bf2f.jpg) 
+<br>
+왜 이름은 4개씩 나오고 부서명이 하나씩 박혀 있는가 하니, 오라클은 이렇게 2개 테이블이 있으면 2개 테이블로 나올 수 있는 경우를 다 조합해서 로우로 뱉는다. 여기서도 emp12개 row와 dept4개 row를 다 조합해서 위와 같이 48개의 끔찍한 갯수를 뱉은 것이다. 이걸 쓸 수는 없으니 한번 더 가공을 해보자. 조건으로 `emp.deptno = dept.deptno`를 걸어준다면 골라낼 수 있을 거 같은데...
+<br>
+<br>
+![JOIN5](https://user-images.githubusercontent.com/96712990/178944915-42f4e142-ffd3-4bad-8e73-8a57d3d896bf.jpg)
+<br>
+WHERE절에 조건을 걸어 줬더니 확실히 보기 좋게 출력되었다.
+ 
 
