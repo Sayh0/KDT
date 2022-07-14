@@ -1,8 +1,8 @@
 # 데이터베이스에서 오늘 나는 뭘 배웠나?
 <br>
 ## 목차 
-
-1. [프라이머리 키Primary Key](#프라이머리-키Primary-Key)
+<br> 
+1. [프라이머리 키Primary Key](#프라이머리-키Primary-Key) 
 
 
 ![오라클 테이블 저장방식](https://user-images.githubusercontent.com/96712990/178691788-032acd0e-5506-40fe-8eed-bb86b9060987.jpg) 
