@@ -111,7 +111,7 @@ FROM DUAL;
 <br>
 ![JOIN2 deptno가 두개 테이블에 겹쳐서 있는 거라 애매하다 지랄](https://user-images.githubusercontent.com/96712990/178943487-63659b2e-1a6a-47fc-b8a7-e78e3253bc1c.JPG)
 <br>
-애매? 컴퓨터가 애매하다고 뱉는 건 처음 본다. 설명을 들어보니, deptno 가 두 개 테이블에 모두 존재하기 때문에 각각 명명을 해 주어야 한다고 한다.<br> 친절하게 emp.deptno와 dept.deptno로 명명해 주고 다시 출력해 보자. 
+애매? 뭐 이딴 인간적인 컴퓨터가 다 있지? 설명을 들어보니, deptno 가 두 개 테이블에 모두 존재하기 때문에 각각 명명을 해 주어야 한다고 한다.<br> 친절하게 emp.deptno와 dept.deptno로 명명해 주고 다시 출력해 보자. 
 <br>
 <br>
 <br>
@@ -130,7 +130,7 @@ FROM DUAL;
 *이렇게 하나하나 붙여서 테이블1의 컬럼갯수 X 테이블2의 컬럼갯수 만큼 조합해버린다*
 <br><br>
 
-여기서도 emp12개 row와 dept4개 row를 다 조합해서 위와 같이 48개의 끔찍한 갯수를 뱉은 것이다. 이걸 쓸 수는 없으니 한번 더 가공을 해보자. 조건으로 `emp.deptno = dept.deptno`를 걸어준다면 골라낼 수 있을 거 같은데...
+여기서도 emp 12개 row와 dept 4개 row를 다 조합해서 위와 같이 48개의 끔찍한 갯수를 뱉은 것이다. 이걸 쓸 수는 없으니 한번 더 가공을 해보자. 조건으로 `emp.deptno = dept.deptno`를 걸어준다면 골라낼 수 있을 거 같은데...
 <br>
 <br>
 <br>
