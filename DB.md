@@ -215,7 +215,9 @@ SMITH      FORD
 11 개의 행이 선택되었습니다.
 ```
 원래 이름은 12개인데 11개의 행이 출력되었다. KING의 매니저가 없기 때문에 출력이 되지 않은 것인데, 이럴 경우엔 **OUTER JOIN**을 사용한다. <br>
-**OUTER JOIN**d은 한쪽 테이블에는 해당하는 데이터가 존재하고, 다른 테이블에 데이터가 존재하지 않을 때 모든 데이터를 추출하도록 하는 JOIN 방법이다. 위의 문제에서 담당하는 매니저가 없는 사원도 출력하기 위해 OUTER JOIN을 사용하면 쿼리는 아래와 같다.
+OUTER(외부) JOIN 이란 조인 조건에서 동일한 값이 없는 행도 반환할 때 사용하는 구문이다.
+**OUTER JOIN**d은 한쪽 테이블에는 해당하는 데이터가 존재하고, 다른 테이블에 데이터가 존재하지 않을 때 모든 데이터를 추출한다. <br>
+위의 문제에서 담당하는 매니저가 없는 사원도 출력하기 위해 OUTER JOIN을 사용하면 쿼리는 아래와 같다.
 ```
 SELECT  e1.ename AS emplyee, e2.ename AS manager
 FROM    emp e1, emp e2
@@ -241,9 +243,44 @@ KING
 12 개의 행이 선택되었습니다.
 
 ```
-KING까지 모두 12개의 행이 출력된 모습을 확인할 수 있다.
+KING까지 모두 12개의 행이 출력된 모습을 확인할 수 있다. <br>
+ANSI JOIN 표현을 이용해 OUTER JOIN을 할 수도 있다. <br>
+emp테이블과 dept테이블에서 deptno를 이용해 사원번호empno, 부서번호deptno, 부서이름dname을 출력해보자. 이 때 사원이 없는 부서까지 모두 포함해서 출력하려면, 
+```sql
+SELECT empno, deptno, dname
+FROM emp
+RIGHT OUTER JOIN dept USING(deptno)
+```
+**LEFT** 와 **RIGHT**는 어떤 테이블은 기준으로 잡는지(드라이빙 테이블)를 결정한다. 어떤 테이블이 드라이빙 테이블이 되는가에 따라 쿼리의 성능이나 튜닝에 영향이 가기 대문에, 최소한의 데이터를 추출하는 테이블을 드라이빙 테이블로 잡는 것이 중요하곘다.
+<br>
+emp 테이블에 RIGHT OUTER JOIN dept를 하는 경우 (emp를 좌측 / dept를 우측 테이블이라고 생각하자)
+<br>
+emp,dept 테이블의 조인 조건이 맞는 경우 dept 테이블의 컬럼에서 해당 데이터를 가져오고, dept와 매칭되지 않는 emp테이블 컬럼들은 NULL로 채운다.
+
+```
+  1  SELECT emp.empno, deptno, dept.dname
+  2  FROM emp
+  3* RIGHT OUTER JOIN dept USING (deptno)
+SQL> /
+
+     EMPNO     DEPTNO DNAME
+---------- ---------- ----------------------------
+      7369         20 RESEARCH
+      7499         30 SALES
+      7521         30 SALES
+      7566         20 RESEARCH
+      7654         30 SALES
+      7698         30 SALES
+      7782         10 ACCOUNTING
+      7839         10 ACCOUNTING
+      7844         30 SALES
+      7900         30 SALES
+      7902         20 RESEARCH
+      7934         10 ACCOUNTING
+                   40 OPERATIONS
+```
+*알아보기 쉽게 emp. 와 dept.를 표기했지만 생략해도 무방*
 
 
 
-### 7번째 목차
 
