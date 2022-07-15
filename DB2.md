@@ -2,7 +2,8 @@
 
 ## 목차
 [DML](dml(data-multipulation-language))
-
+<br>
+[TCL](tcl(transcation-control-language))
 
 ### DML(Data Multipulation Language)
 테이블 내의 데이터를 입력, 수정, 삭제한다. 데이터베이스에 들어 있는 데이터를 조작할 때 사용하는 언어이며, 가장 기본적인 언어. 
@@ -35,4 +36,4 @@ WHERE 조건절...
 ```
 <br><br><br>
 ### TCL(Transcation Control Language)
-위의 DML문이 실행되어 DBMS에서 돌아갈 때 트랜잭션을 위해 있는 언어.
+위의 DML문이 실행되어 DBMS에서 돌아갈 때 트랜잭션을 제어하기 위해 사용하는 언어.
