@@ -8,6 +8,7 @@
 4. [NULL값](#null값)
 5. [함수](#함수function)
 6. [조인](#조인join)
+7. [7번째 목차](#7번째-목차)
 <br>
 
 ![오라클 테이블 저장방식](https://user-images.githubusercontent.com/96712990/178691788-032acd0e-5506-40fe-8eed-bb86b9060987.jpg) 
@@ -145,3 +146,54 @@ FROM DUAL;
 *결과.*
 <br>
 조인할 때에는 emp.deptno dept.deptno 모두 써 줄 필요 없다. 하나만 써도 무방하다. 위에서 애매하다고 한건 어떤 dept인지 몰라서 애매하다고 했던 거고, '이 테이블의 dept를 쓰도록 내가 하나 집어 줄게~' 라는 느낌으로 emp. 든 dept.든 쓴 것으로 이해하면 될 것 같다.
+<br>
+### JOIN의 여러가지 활용
+#### INNER JOIN
+![JOIN 의 여러가지 활용](https://user-images.githubusercontent.com/96712990/179145882-80742b75-8ab4-4920-8485-6160b0347234.JPG)
+<br>
+*ANSI JOIN 표현식을 이용해 JOIN을 해보자*
+<br>
+ANSI JOIN을 활용하면 쿼리의 가독성을 좀 더 높일 수 있다. 일반적으로 많이 사용하는 방법이기도 하고. <br>
+예를 들어보자. 부서명dname이 'ACCOUNTNG' 인 사원이름ename,입사일hiredate,부서번호deptno,부서명dname을 출력하고자 한다. 지금까지 배운 JOIN 방법으로는 다음과 같다.
+```sql
+SELECT  ename, hiredate, emp.deptno, dname
+FROM    emp, dept
+WHERE   emp.deptno = dept.deptno
+AND     dname = 'ACCOUNTING'
+```
+INNER JOIN을 활용한다면 emp와 dept를 WHERE 절에 복잡하게 늘여 쓰는것 대신 INNER JOIN 다음으로 서술하는 것으로 올릴 수 있다. 
+이렇게 쓰면 JOIN의 쿼리와 WHERE의 쿼리를 구분해서 볼 수 있기 때문에 쿼리를 이해하기가 더 쉬워진다.
+```sql
+SELECT      ename, hiredate, emp.deptno, dname
+FROM        emp
+INNER JOIN  dept ON emp.deptno = dept.deptno
+WHERE       dname = 'ACCOUNTING'
+```
+*여기서 INNER는 JOIN의 디폴트값이라 생략해서 쓰는 것도 가능하다)* <br><br>
+같은 컬럼을 이용할 경우 **USING**을 쓰면 좀 더 편하게 서술이 가능하다.
+```sql
+SELECT  ename, hiredate, deptno, dname
+FROM    emp
+JOIN    dept USING(deptno)
+WHERE   dname = 'ACCOUNTING'
+```
+*deptno라는 같은 컬럼을 이용하기에 USING을 쓸 수 있다. (JOIN 앞 INNER는 생략)*
+<br>
+<br>
+세 쿼리 모두 결과는 동일하다.
+```
+ENAME      HIREDATE     DEPTNO DNAME
+---------- -------- ---------- ----------------------------
+CLARK      81/06/09         10 ACCOUNTING
+KING       81/11/17         10 ACCOUNTING
+MILLER     82/01/23         10 ACCOUNTING
+```
+#### SELF JOIN / OUTER JOIN
+**SELF JOIN**은 참조해야 할 칼럼이 자신의 테이블에 있는 경우 사용한다.<br>
+각 사원의 이름ename,
+
+
+
+
+### 7번째 목차
+
