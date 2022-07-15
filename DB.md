@@ -190,8 +190,58 @@ MILLER     82/01/23         10 ACCOUNTING
 ```
 #### SELF JOIN / OUTER JOIN
 **SELF JOIN**은 참조해야 할 칼럼이 자신의 테이블에 있는 경우 사용한다.<br>
-각 사원의 이름ename,
+각 사원의 이름ename과 그 사원을 담당하는 매니저mgr 이름을 출력하려고 한다. 
+```sql
+SELECT  e1.ename AS emplyee, e2.ename AS manager
+FROM    emp e1, emp e2
+WHERE   e1.mgr = e2.empno
+```
+결과는 아래와 같다.
+```
+EMPLYEE    MANAGER
+---------- ----------
+FORD       JONES
+JAMES      BLAKE
+TURNER     BLAKE
+MARTIN     BLAKE
+WARD       BLAKE
+ALLEN      BLAKE
+MILLER     CLARK
+CLARK      KING
+BLAKE      KING
+JONES      KING
+SMITH      FORD
 
+11 개의 행이 선택되었습니다.
+```
+원래 이름은 12개인데 11개의 행이 출력되었다. KING의 매니저가 없기 때문에 출력이 되지 않은 것인데, 이럴 경우엔 **OUTER JOIN**을 사용한다. <br>
+**OUTER JOIN**d은 한쪽 테이블에는 해당하는 데이터가 존재하고, 다른 테이블에 데이터가 존재하지 않을 때 모든 데이터를 추출하도록 하는 JOIN 방법이다. 위의 문제에서 담당하는 매니저가 없는 사원도 출력하기 위해 OUTER JOIN을 사용하면 쿼리는 아래와 같다.
+```
+SELECT  e1.ename AS emplyee, e2.ename AS manager
+FROM    emp e1, emp e2
+WHERE   e1.mgr = e2.empno(+)
+```
+EMPLOYEE 컬럼의 row가 잘렸기 때문에 WHERE 절의 empno에 (+)를 붙여준다. 결과는 아래와 같다.
+```
+EMPLOYEE             MANAGER
+-------------------- --------------------
+FORD                 JONES
+JAMES                BLAKE
+TURNER               BLAKE
+MARTIN               BLAKE
+WARD                 BLAKE
+ALLEN                BLAKE
+MILLER               CLARK
+CLARK                KING
+BLAKE                KING
+JONES                KING
+SMITH                FORD
+KING
+
+12 개의 행이 선택되었습니다.
+
+```
+KING까지 모두 12개의 행이 출력된 모습을 확인할 수 있다.
 
 
 
