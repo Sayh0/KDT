@@ -3,28 +3,53 @@ public ModelAndView list 에서 (HttpServletRequest request) 를 전달받을 �
 
 >> ModelAndView 패턴 
 
+복습할 것=============================================
 
-forward 이동 한번더 복습
+> 상속과 구현의 차이
 
-스프링 bean, DI 개념 복습
+> forward 이동 한번더 복습
 
-@Autowired,
-dependency injection(DI), 즉 주입이 되려면 꼭 스캔이 되 있어야 한다.
+> @Autowired, < 주입한다 라는 어노테이션 같은데... 찾아보기.
+필드 선언하면 null인데 오토와이어드 붙으면 자동으로 겟터세터가 생성된다고 보면 된다.
+컨테이서에서 그럼 겟셋을 찾아서 지가 알아서 넣고 시작하는것.
+어노테이션이 붙으면 실행 시점에 저 클래스 저대로 쓰는 게 아닌 변형시켜 쓴다는 의미로 보면 된다.
 
-그러니까 <context:component-scan base-package="com.gura.step03" />는 아주 중요한 설정이지.
-
-bean에 대한 이해, scan에 대한 이해 같이 필요
-
-상속과 구현의 차이
-
-
-
-
-
+> 이런 것이 가능하게 해 주는
+스프링 bean, DI 개념 복습. bean에 대한 이해, scan에 대한 이해 같이 필요
+ㄴ 
+webapp/WEB-INF/spring/appServlet/servelt-context.xml에서
+<context:component-scan base-package="com.gura.step03" />는 아주 중요한 설정!
 
 
+SqlSessionTemplate 에 대한 이해 >> 아래 코드 확인(Servlet-context.xml)
+```
+   <beans:bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+      <beans:constructor-arg name="sqlSessionFactory" 
+         ref="sessionFactory"/>
+   </beans:bean>
+   <!-- SqlSession Interface로 받아서 사용하겠다는것 -->
+      <!-- 
+      	위의 bean 설정을 java code 로 환산 하면 아래와 같다 
+      
+      dataSource = new JndiObjectFactoryBean();
+      dataSource.setJndiName("java:comp/env/jdbc/myoracle");
+      
+      sessionFactory=new SqlSessionFactoryBean();
+      sessionFactory.setDataSource(dataSource);
+      sessionFactory.setConfigLocation("classpath:com/gura/xxx");
+      
+      new SqlSessionTemplate(sessionFactory);
+ 	-->     
+  	<!-- 
+      new SqlSessionTemplate(sessionFactory);는 DAO에 주입이 될 예정.
+      interface type으로 사용된다.
+      DAO 안에서 저 객체를 이용해 insert select delete 등의 작업을 함.
+```
 
 
+
+
+=============================================
 
 
 xxx.do 로 끝나는 요청은 dispatcher servlet 이 먼저 접수한다.
@@ -36,4 +61,26 @@ DAO는 오라클에서 데이터를 끌어온다.
 
 결국은 이러한 과정을 다 끝내고
 viewpage로 forward 이동을 해서, jsp에서 클라이언트에게 응답을 하는 구조.
+
+결국은 이러한 과정을 다 끝내고
+viewpage로 forward 이동을 해서, jsp에서 클라이언트에게 응답을 하는 구조.
+
+그리고 모든 컨트롤러, 서비스, DAO 객체는 스프링 빈 컨테이너에서 관리가 된다. 
+우리가 직접 생성하지도 않는다.
+
+ex)
+<a href="/member/list.do"> xxx </a> 가 이루어지기 까지...
+
+1. 해당 요청을 처리할 Controller 메소드 추가
+2. Controller에서 사용하는 Service 에 메소드 추가(인터페이스 먼저 만들어야함)
+3. Service에서 사용하는 DAO에 메소드 추가(인터페이스 먼저 만들어야함)
+4. MyBatis를 사용하기 때문에 DAO에서 사용하는 Mapper xml 에 sql 문 추가
+5. forward 이동될 jsp 페이지 추가.
+6. 응답을 할 viewpage 추가.
+
+하나라도 어긋나면 SqlSessionTemplate 이 생성이 안 된다. >> 500번ㅋㅋ;
+
+갱장히 많다 그죠잉?
+그래도 개발할 땐 어려워도, 유지보수할 때 편하다.
+인터페이스 객체로 받는 건, 의존관계를 느슨하게 하기 위해서이다.
 
