@@ -1,0 +1,39 @@
+ModelAndView 에서는
+public ModelAndView list 에서 (HttpServletRequest request) 를 전달받을 필요 없음
+
+>> ModelAndView 패턴 
+
+
+forward 이동 한번더 복습
+
+스프링 bean, DI 개념 복습
+
+@Autowired,
+dependency injection(DI), 즉 주입이 되려면 꼭 스캔이 되 있어야 한다.
+
+그러니까 <context:component-scan base-package="com.gura.step03" />는 아주 중요한 설정이지.
+
+bean에 대한 이해, scan에 대한 이해 같이 필요
+
+상속과 구현의 차이
+
+
+
+
+
+
+
+
+
+
+
+xxx.do 로 끝나는 요청은 dispatcher servlet 이 먼저 접수한다.
+디스패처 서블렛은 이 요청을 어떤 컨트롤러의 어떤 메소드가 처리를 할 지 배정을 한다.
+배정받은 컨트롤러는 Service에 의존한다. 어느 서비스를 통해 요청처리를 할지 결정한다.
+이러한 상호작용은 꼭 1:1은 아니고, 1 Controller :다 Service 도 가능하다.
+서비스는 DAO에 의존한다. 특정 DAO를 이용해 요청을 처리한다. (이것도 꼭 1:1 아님)
+DAO는 오라클에서 데이터를 끌어온다.
+
+결국은 이러한 과정을 다 끝내고
+viewpage로 forward 이동을 해서, jsp에서 클라이언트에게 응답을 하는 구조.
+
